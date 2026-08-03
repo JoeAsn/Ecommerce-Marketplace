@@ -1,0 +1,139 @@
+.checkout-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 88px 42px 120px;
+}
+.checkout-title {
+  max-width: 680px;
+  margin-bottom: 44px;
+}
+.checkout-title h1 {
+  margin: 8px 0 18px;
+}
+.checkout-title p {
+  color: #5d5a53;
+  line-height: 1.75;
+}
+.checkout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(380px, 0.8fr);
+  gap: 44px;
+}
+.checkout-form-card,
+.checkout-summary-card {
+  background: #fff;
+  border: 1px solid #dbd8d1;
+  padding: 38px;
+}
+.checkout-form-card h2,
+.checkout-summary-card h2 {
+  font-size: 28px;
+  margin: 0 0 28px;
+}
+.checkout-form {
+  display: grid;
+  gap: 24px;
+}
+.checkout-form label {
+  display: grid;
+  gap: 8px;
+  font: 11px "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #403d38;
+}
+.checkout-form input,
+.checkout-form select {
+  border: 0;
+  border-bottom: 1px solid #c5c2bc;
+  background: transparent;
+  padding: 16px 0 10px;
+  font: 16px var(--sans);
+  outline: none;
+}
+.checkout-form select {
+  appearance: none;
+}
+.payment-details {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e7e4df;
+  display: grid;
+  gap: 18px;
+}
+.payment-details h3 {
+  margin: 0;
+  font-size: 18px;
+}
+.card-number-field {
+  width: 100%;
+}
+.card-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.card-field-grid label {
+  display: grid;
+  gap: 8px;
+}
+.order-review {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.order-review-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0efeb;
+}
+.order-review-item strong {
+  font-weight: 600;
+}
+.checkout-totals {
+  border-top: 1px solid #dfdacf;
+  padding-top: 28px;
+  display: grid;
+  gap: 13px;
+}
+.checkout-totals p {
+  display: flex;
+  justify-content: space-between;
+  font: 15px var(--sans);
+  color: #4f4b45;
+}
+.checkout-total-row {
+  display: flex;
+  justify-content: space-between;
+  font: 600 22px var(--serif);
+  margin-top: 12px;
+}
+.checkout-button,
+.payment-redirect-button {
+  width: 100%;
+  margin-top: 34px;
+  padding: 16px 0;
+  border: 0;
+  background: #7c6a44;
+  color: #fff;
+  font: 14px "DM Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.checkout-note {
+  margin-top: 20px;
+  color: #5a554d;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.empty-message {
+  color: #6b655f;
+}
+@media (max-width: 980px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+}

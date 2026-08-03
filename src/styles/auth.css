@@ -1,0 +1,131 @@
+.auth-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  background: #f7f4ef;
+}
+.auth-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+  gap: 42px;
+  width: min(1120px, 100%);
+}
+.auth-card,
+.auth-info-card {
+  background: #fff;
+  padding: 42px;
+  border: 1px solid #dedad4;
+}
+.auth-card h1,
+.auth-info-card h1,
+.auth-info-card h2 {
+  margin-top: 0;
+}
+.auth-card h1,
+.auth-info-card h1 {
+  font-size: 38px;
+  line-height: 1.05;
+}
+.auth-info-card h2 {
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+.auth-intro {
+  margin: 18px 0 32px;
+  color: #56524d;
+  line-height: 1.75;
+}
+.auth-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.auth-benefits li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 18px;
+  color: #49463f;
+}
+.auth-benefits li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #7c6a44;
+}
+.auth-form {
+  display: grid;
+  gap: 24px;
+}
+.auth-form label {
+  display: grid;
+  gap: 10px;
+  text-transform: uppercase;
+  font: 11px "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  color: #3f3d39;
+}
+.auth-form input {
+  border: 0;
+  border-bottom: 1px solid #c7c3ba;
+  background: transparent;
+  padding: 14px 0 10px;
+  font: 16px var(--sans);
+  outline: none;
+}
+.auth-form input:focus {
+  border-color: #9d8a62;
+}
+.auth-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.auth-checkbox {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 14px;
+}
+.auth-link-button {
+  border: 0;
+  background: none;
+  color: #6d655a;
+  font: 12px "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.primary-button.auth-submit {
+  width: 100%;
+  background: #7c6a44;
+  color: #fff;
+  padding: 16px 20px;
+  border: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font: 14px "DM Sans", sans-serif;
+  cursor: pointer;
+}
+.auth-message {
+  margin: -6px 0 0;
+  color: #8a3025;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.auth-footer {
+  margin-top: 18px;
+  font-size: 14px;
+}
+.auth-footer a {
+  color: #7c6a44;
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+}

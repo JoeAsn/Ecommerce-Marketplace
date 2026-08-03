@@ -1,0 +1,341 @@
+.home-page {
+  margin-top: 60px;
+  overflow-x: hidden;
+}
+
+.home-page .products-grid {
+  display: grid;
+
+  /* - In CSS Grid, 1fr means a column will take up the
+       remaining space in the grid.
+     - If we write 1fr 1fr ... 1fr; 8 times, this will
+       divide the grid into 8 columns, each taking up an
+       equal amount of the space.
+     - repeat(8, 1fr); is a shortcut for repeating "1fr"
+       8 times (instead of typing out "1fr" 8 times).
+       repeat(...) is a special property that works with
+       display: grid; */
+  grid-template-columns: repeat(8, 1fr);
+}
+
+/* @media is used to create responsive design (making the
+   website look good on any screen size). This @media
+   means when the screen width is 2000px or less, we
+   will divide the grid into 7 columns instead of 8. */
+@media (max-width: 2000px) {
+  .home-page .products-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+/* This @media means when the screen width is 1600px or
+   less, we will divide the grid into 6 columns. */
+@media (max-width: 1600px) {
+  .home-page .products-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1300px) {
+  .home-page .products-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .home-page .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .home-page .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .home-page .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .home-page .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-page .product-container {
+  padding-top: 40px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  border-right: 1px solid rgb(240, 240, 240);
+  border-bottom: 1px solid rgb(240, 240, 240);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page .product-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 180px;
+  margin-bottom: 20px;
+}
+
+.home-page .product-image {
+  /* Images overflow the container by default. To prevent this, set
+     max-width and max-height to 100% to stay inside container. */
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5px;
+}
+
+.home-page .product-name {
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.home-page .product-rating-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.home-page .product-rating-stars {
+  width: 100px;
+  margin-right: 6px;
+}
+
+.home-page .product-rating-count {
+  color: rgb(25, 135, 84);
+  cursor: auto;
+  margin-top: 3px;
+}
+
+.home-page .product-price {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.home-page .product-quantity-container {
+  margin-bottom: 17px;
+}
+
+.home-page .product-spacer {
+  flex: 1;
+}
+
+.home-page .added-to-cart {
+  color: rgb(25, 135, 84);
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  /* At first, the "Added to cart" message will
+     be invisible. Use JavaScript to change the
+     opacity and make it visible. */
+  opacity: 0;
+}
+
+.home-page .added-to-cart img {
+  height: 19px;
+  margin-right: 6px;
+}
+
+.home-page .add-to-cart-button {
+  width: 100%;
+  padding: 8px;
+  height: 34px;
+  margin-top: 1px;
+}
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Dark overlay so text is readable over any video */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  color: white;
+}
+
+.hero-copy h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+/* Pill outline button, like "Start Learning" */
+.pill-button {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 2px solid white;
+  border-radius: 999px;
+  color: white;
+  background: transparent;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pill-button:hover {
+  background: white;
+  color: black;
+}
+
+/* Remove the side image layout entirely — sample has no hero-visual */
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding: 32px 24px 50px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(42px, 7vw, 54px);
+  }
+
+  .hero-copy > p:not(.eyebrow) {
+    font-size: 16px;
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .pill-button {
+    padding: 12px 24px;
+  }
+
+  .collection {
+    padding: 0 24px 80px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 30px 18px 46px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(36px, 10vw, 46px);
+  }
+
+  .editorial {
+    padding: 80px 18px 70px;
+  }
+
+  .editorial h2 {
+    font-size: 36px;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .luxury-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 28px 16px 40px;
+    min-height: auto;
+    align-items: flex-start;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(30px, 12vw, 40px);
+  }
+
+  .pill-button {
+    width: 100%;
+    text-align: center;
+    padding: 14px 18px;
+  }
+
+  .editorial {
+    padding: 64px 16px 56px;
+  }
+
+  .editorial h2 {
+    font-size: 32px;
+  }
+
+  .collection {
+    padding: 0 16px 64px;
+  }
+
+  .luxury-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-photo {
+    height: 240px;
+  }
+
+  .card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .card-bottom button {
+    align-self: flex-end;
+  }
+}
