@@ -4,7 +4,8 @@ import type { User } from "../../types/user";
 
 export default function Overview() {
   const { user } = useOutletContext<{ user: User | null }>();
-  const { orders = [], ordersLoading } = useDataContext();
+  const { orders, ordersLoading } = useDataContext();
+  const safeOrders = orders ?? [];
 
   return (
     <div>
@@ -14,12 +15,12 @@ export default function Overview() {
       <div className="account-stats">
         <div>
           <span>Orders</span>
-          <strong>{ordersLoading ? "—" : orders.length}</strong>
+          <strong>{ordersLoading ? "—" : safeOrders.length}</strong>
         </div>
 
         <div>
           <span>Latest status</span>
-          <strong>{orders[0]?.status || "None"}</strong>
+          <strong>{safeOrders[0]?.status || "None"}</strong>
         </div>
 
         <div>

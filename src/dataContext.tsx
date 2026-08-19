@@ -10,9 +10,9 @@ interface DataContextValue {
   products: Product[];
   loading: boolean;
   user: User | null;
-  setUser: (nextUser: User | null) => void;
-  orders: Order[] | null;
-  setOrders: React.Dispatch<React.SetStateAction<Order[] | null>>;
+  setUser: (nextUser: User | null | undefined) => void;
+  orders: Order[];
+  setOrders: React.Dispatch<React.SetStateAction<Order[]>>;
   ordersLoading: boolean;
 }
 
@@ -22,13 +22,13 @@ const apiUrl: string = import.meta.env.VITE_PRODUCTS_API_URL;
 export function DataProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<User|null>(null);
-  const [orders, setOrders] = useState<Order[] | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [orders, setOrders] = useState<Order[]>([]);
   const [ordersLoading, setOrdersLoading] = useState(false);
-  const setAuthenticatedUser = useCallback((nextUser: User | null) => {
+  const setAuthenticatedUser = useCallback((nextUser: User | null | undefined) => {
     setOrders([]);
     setOrdersLoading(Boolean(nextUser?.id));
-    setUser(nextUser);
+    setUser(nextUser ?? null);
   }, []);
   useEffect(() => {
     axios

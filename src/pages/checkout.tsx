@@ -30,6 +30,7 @@ export default function Checkout({ cart = [], setCart }: CheckoutPageProps) {
   const [submitError, setSubmitError] = useState("");
   const context = useContext(DataContext);
   const user = context?.user ?? null;
+  const userId = user?.id ?? null;
   const setOrders = context?.setOrders ?? (() => undefined);
   const safeCart = Array.isArray(cart) ? cart : [];
   const delivery = location.state?.delivery || "standard";
@@ -41,18 +42,18 @@ export default function Checkout({ cart = [], setCart }: CheckoutPageProps) {
   const tax = (subtotal + shipping) * 0.085;
   const total = subtotal + shipping + tax;
 
-  if (!user?.id) {
+  if (!userId) {
     return <Navigate to="/login" replace />;
   }
 
   async function handleConfirmOrder(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!safeCart.length) return;
+    if (!safeCart.length || !userId) return;
 
     const formData = new FormData(event.currentTarget);
     const order: Order = {
       id: `order-${Date.now()}`,
-      userId: user.id,
+      userId: userId,
       orderNumber: `ORD-${Date.now().toString().slice(-8)}`,
       createdAt: new Date().toISOString(),
       status: "Processing",

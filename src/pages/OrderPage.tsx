@@ -13,7 +13,8 @@ const formatDate = (value?: string) =>
     : "Date unavailable";
 
 export default function OrdersPage() {
-  const { user, orders = [], ordersLoading } = useDataContext();
+  const { user, orders, ordersLoading } = useDataContext();
+  const safeOrders = orders ?? [];
 
   if (!user?.id) {
     return (
@@ -39,8 +40,8 @@ export default function OrdersPage() {
 
           {ordersLoading ? (
             <p>Loading your orders...</p>
-          ) : orders.length ? (
-            orders.map((order) => <OrderDetails key={order.id} order={order} />)
+          ) : safeOrders.length ? (
+            safeOrders.map((order) => <OrderDetails key={order.id} order={order} />)
           ) : (
             <div className="live-order">
               <h2>No orders yet</h2>
@@ -52,7 +53,7 @@ export default function OrdersPage() {
 
         <aside className="history">
           <h2>Purchase History</h2>
-          {orders.map((order) => (
+          {safeOrders.map((order) => (
             <div className="history-card" key={order.id}>
               <div>
                 <small>{formatDate(order.createdAt)}</small>

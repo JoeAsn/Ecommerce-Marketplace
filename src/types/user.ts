@@ -3,10 +3,9 @@ export type User = {
     name: string;
     email: string;
 };
-export type user = {
+
+export type AuthResponse = {
   success: boolean;
-  message: string;
+  message?: string;
+  user?: User;
 };
-export type AuthResponse = user & {
-  user : User
-}
