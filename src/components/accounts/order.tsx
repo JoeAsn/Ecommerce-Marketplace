@@ -8,16 +8,17 @@ const money = (value: number) =>
   );
 
 export default function Orders() {
-  const { orders = [], ordersLoading } = useDataContext();
+  const { orders, ordersLoading } = useDataContext();
+  const safeOrders = orders ?? [];
 
   return (
     <div>
       <h1>Your Orders</h1>
       {ordersLoading ? (
         <p>Loading your orders...</p>
-      ) : orders.length ? (
+      ) : safeOrders.length ? (
         <div className="orders-list">
-          {orders.map((order: Order) => (
+          {safeOrders.map((order: Order) => (
             <div className="order-card" key={order.id}>
               <div>
                 <h3>{order.orderNumber || `Order #${order.id}`}</h3>

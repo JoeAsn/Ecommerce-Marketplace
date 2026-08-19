@@ -15,7 +15,7 @@ export default function SignUp() {
   const setUser = context?.setUser ?? (() => undefined);
   const [state , fun ,pending] = useActionState(signup ,initialState)
   useEffect(() => {
-    if (state.success) {
+    if (state.success && state.user) {
       setUser(state.user);
       navigate("/account", { replace: true });
     }

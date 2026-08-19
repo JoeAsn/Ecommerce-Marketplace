@@ -16,10 +16,10 @@ export default function Login() {
   const navigate = useNavigate();
   const [state, fun, pending] = useActionState(login, initialState);
   useEffect(() => {
-    if (state.success) {
-      setUser(state.user)
+    if (state.success && state.user) {
+      setUser(state.user);
       navigate("/", { replace: true });
-    } 
+    }
   }, [navigate, state.success, state.user, setUser]);
   return (
     <>
